@@ -21,7 +21,9 @@
 	-git 로컬 저장소에 변경 내용 업로드
 	
 
+
 ##2일차
+
 1) git hub pul/push 복습
 	
 	-파일 업로드: 백업명단 작성 ($git add .)  -> 백업 수행 ($git commit -m "설명") -> $git push
