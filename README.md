@@ -10,9 +10,10 @@
 	
 4) 개발학습 도구 준비
 
-	<webEx> 
+	*webEx
 	-온라인 화상 통신 설치	
-	<git hub>
+	
+	*git hub
 	-계정생성
 	-git client 설치
 	-client server로 연결
@@ -22,5 +23,6 @@
 
 ##2일차
 1) git hub pul/push 복습
+	
 	-파일 업로드: 백업명단 작성 ($git add .)  -> 백업 수행 ($git commit -m "설명") -> $git push
 	-파일 백업: $git pull
