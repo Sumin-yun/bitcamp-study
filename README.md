@@ -26,5 +26,13 @@
 
 1) git hub pul/push 복습
 	
-	-파일 업로드: 백업명단 작성 ($git add .)  -> 백업 수행 ($git commit -m "설명") -> $git push
-	-파일 백업: $git pull
+	-로컬저장소 파일 업로드: 백업명단 작성 ($git add .)  -> 백업 수행 ($git commit -m "설명") -> $git push
+	-서버 저장소 변경내용 로컬 저장소로 가져오기: $git pull
+
+2) Programming 소개 
+	
+	1.컴파일 방식
+		-mingw64 윈도우 gcc 컴파일 설치
+	2.인터프리터 방식
+		-node.js 자바스크립트 인터프리터 설치
+	
