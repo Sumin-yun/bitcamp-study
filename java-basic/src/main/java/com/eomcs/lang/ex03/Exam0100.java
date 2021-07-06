@@ -1,8 +1,13 @@
 package com.eomcs.lang.ex03;
 
 //# 리터럴(literal)
+<<<<<<< HEAD
 //- 자바 언어로 표현한 값.   
 
+=======
+//- 자바 언어로 표현한 값.
+//
+>>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
 
 public class Exam0100 {
   public static void main(String[] args) {

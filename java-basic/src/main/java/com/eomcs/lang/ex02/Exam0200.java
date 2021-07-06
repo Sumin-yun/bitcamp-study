@@ -8,6 +8,7 @@ package com.eomcs.lang.ex02;
 //- 클래스나 메서드, 변수 선언에 붙일 수 있다.
 //
 
+<<<<<<< HEAD
 /**
  * 클래스에 대한 설명
  * @author eomjinyoung
@@ -43,3 +44,13 @@ public class Exam0200 {
 //2) Javadoc으로 생성한 HTML 문서 확인하기
 //- /javadoc 디렉토리를 보면 자바 소스 파일에서 추출한 Javadoc 으로 만든 HTML 문서를 확인할 수 있다.
 // 
+=======
+public class Exam0200{
+  public static String message = "Hello, world!";
+  @param args
+
+  public static void main(String[] args){
+    System.out.println(message);
+  }    
+}
+>>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
