@@ -1,13 +1,23 @@
 package com.eomcs.pms;
 
+<<<<<<< HEAD
 import java.sql.Date;
 import java.util.Scanner;
+=======
+<<<<<<< HEAD
+public class App3 {
+  public static void main(String args[]) {
+    System.out.println("");
+=======
+//pms 02-a-실습3
+>>>>>>> 2b44aabe09e3e0086ec95ed4dd8fe7872ec30ad0
 
 public class App3 {
 
   public static void main(String[] args) {
     System.out.println("[작업]");
 
+<<<<<<< HEAD
     Scanner keyboardScan = new Scanner(System.in);
 
     System.out.print("프로젝트? ");
@@ -28,6 +38,10 @@ public class App3 {
     System.out.println("2: 완료");
     System.out.print("> ");
     int status = Integer.valueOf(keyboardScan.nextLine());
+=======
+>>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
+  }
+>>>>>>> 2b44aabe09e3e0086ec95ed4dd8fe7872ec30ad0
 
     System.out.print("담당자? ");
     String owner = keyboardScan.nextLine();

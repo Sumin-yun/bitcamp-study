@@ -1,4 +1,13 @@
 
+<<<<<<< HEAD
+plugins { 
+    id 'java'
+    id 'eclipse'
+} 
+
+repositories {
+    mavenCentral() 
+=======
 
 plugins {
     id 'java'
@@ -11,6 +20,7 @@ plugins {
 repositories {
 
     mavenCentral() // https://repo.maven.apache.org/maven2/ 사이트에서 다운로드 받는다
+>>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
 } 
 
 
@@ -22,3 +32,7 @@ dependencies {
     implementation 'com.google.guava:guava:30.1-jre'
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
