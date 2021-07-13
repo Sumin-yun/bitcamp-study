@@ -15,6 +15,8 @@ import java.util.Scanner;
 // 10) /project/list 명령 처리
 // 11) /task/add 명령 처리
 // 12) /task/list 명령 처리
+// 14) 메서드 분리
+// 15) 명령어 입력 prompt 메서드 분리
 
 public class App {
   // 회원 정보
@@ -50,11 +52,14 @@ public class App {
   static int[] tStatus = new int[TASK_LENGTH];
   static int tSize = 0;
 
+  static String input;
+
   public static void main(String[] args) {
 
     while (true) {
-      System.out.print("명령> ");
-      String input = keyboardScan.nextLine();
+
+      prompt();
+
       if (input.equals("exit") || input.equals("quit")) {
         System.out.println("안녕!");
         break;
@@ -201,6 +206,10 @@ public class App {
       }
     }
   }
-}
+
+  static void prompt() {
+    System.out.print("명령> ");
+    input = keyboardScan.nextLine();
+  }}
 
 
