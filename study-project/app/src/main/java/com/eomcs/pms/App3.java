@@ -1,71 +1,85 @@
 package com.eomcs.pms;
 
-<<<<<<< HEAD
 import java.sql.Date;
 import java.util.Scanner;
-=======
-<<<<<<< HEAD
-public class App3 {
-  public static void main(String args[]) {
-    System.out.println("");
-=======
-//pms 02-a-실습3
->>>>>>> 2b44aabe09e3e0086ec95ed4dd8fe7872ec30ad0
 
 public class App3 {
 
   public static void main(String[] args) {
     System.out.println("[작업]");
 
-<<<<<<< HEAD
     Scanner keyboardScan = new Scanner(System.in);
+
+    // 최대 100개의 작업 정보를 저장할 메모리 준비
+    // => 배열의 크기를 미리 변수에 저장하여 사용한다.
+    // => 코드 중간에 배열의 크기가 바뀌지 않도록 변수의 값 변경을 제한한다.
+    // => 한 번 설정된 값은 바꿀 수 없음을 표시하기 위해 변수명을 대문자로 표현한다.
+    final int LENGTH = 100;
+    
+    int[] no = new int[LENGTH];
+    String[] content = new String[LENGTH];
+    Date[] deadline = new Date[LENGTH];
+    String[] owner = new String[LENGTH];
+    int[] status = new int[LENGTH];
 
     System.out.print("프로젝트? ");
     String project = keyboardScan.nextLine();
+    System.out.println();
 
-    System.out.print("번호? ");
-    int no = Integer.parseInt(keyboardScan.nextLine());
+    int size = 0;
 
-    System.out.print("내용? ");
-    String content = keyboardScan.nextLine();
+    for (int i = 0; i < LENGTH; i++) {
+      System.out.print("번호? ");
+      no[i] = Integer.parseInt(keyboardScan.nextLine());
 
-    System.out.print("마감일? ");
-    Date deadline = Date.valueOf(keyboardScan.nextLine());
+      System.out.print("내용? ");
+      content[i] = keyboardScan.nextLine();
 
-    System.out.println("상태?");
-    System.out.println("0: 신규");
-    System.out.println("1: 진행중");
-    System.out.println("2: 완료");
-    System.out.print("> ");
-    int status = Integer.valueOf(keyboardScan.nextLine());
-=======
->>>>>>> 8bda8ca9f1ec167de5234a4c004220f0b2119625
-  }
->>>>>>> 2b44aabe09e3e0086ec95ed4dd8fe7872ec30ad0
+      System.out.print("마감일? ");
+      deadline[i] = Date.valueOf(keyboardScan.nextLine());
 
-    System.out.print("담당자? ");
-    String owner = keyboardScan.nextLine();
+      System.out.println("상태?");
+      System.out.println("0: 신규");
+      System.out.println("1: 진행중");
+      System.out.println("2: 완료");
+      System.out.print("> ");
+      status[i] = Integer.valueOf(keyboardScan.nextLine());
+
+      System.out.print("담당자? ");
+      owner[i] = keyboardScan.nextLine();
+
+      size++;
+      System.out.println(); // 빈 줄 출력
+
+      System.out.print("계속 입력하시겠습니까?(y/N) ");
+      String str = keyboardScan.nextLine();
+      if (!str.equalsIgnoreCase("y")) {
+        break;
+      }
+      System.out.println(); // 빈 줄 출력
+    }
 
     keyboardScan.close();
 
     System.out.println("--------------------------------");
 
-    System.out.printf("프로젝트: %s\n", project);
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("내용: %s\n", content);
-    System.out.printf("마감일: %s\n", deadline);
+    System.out.printf("[%s]\n", project);
 
-    switch (status) {
-      case 1:
-        System.out.println("상태: 진행중");
-        break;
-      case 2:
-        System.out.println("상태: 완료");
-        break;
-      default:
-        System.out.println("상태: 신규");
+    for (int i = 0; i < size; i++) {
+      String stateLabel = null;
+      switch (status[i]) {
+        case 1:
+          stateLabel = "진행중";
+          break;
+        case 2:
+          stateLabel = "완료";
+          break;
+        default:
+          stateLabel = "신규";
+      }
+      // 번호, 작업명, 마감일, 프로젝트, 상태, 담당자
+      System.out.printf("%d, %s, %s, %s, %s\n", // 출력 형식 지정
+          no[i], content[i], deadline[i], stateLabel, owner[i]);
     }
-
-    System.out.printf("담당자: %s\n", owner);
   }
 }
