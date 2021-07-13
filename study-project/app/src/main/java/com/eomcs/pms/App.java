@@ -17,6 +17,8 @@ import java.util.Scanner;
 // 12) /task/list 명령 처리
 // 14) 메서드 분리
 // 15) 명령어 입력 prompt 메서드 분리
+// 16) prompt에 문자열 입력 기능 추가
+// 17) prompt기능 세부
 
 public class App {
   // 회원 정보
@@ -52,13 +54,12 @@ public class App {
   static int[] tStatus = new int[TASK_LENGTH];
   static int tSize = 0;
 
-  static String input;
 
   public static void main(String[] args) {
 
     while (true) {
 
-      prompt();
+      String input = prompt("명령>>");
 
       if (input.equals("exit") || input.equals("quit")) {
         System.out.println("안녕!");
@@ -92,23 +93,13 @@ public class App {
   static void addMember() {
 
     System.out.println("[회원 등록]");
-    System.out.print("번호? ");
-    no[size] = Integer.parseInt(keyboardScan.nextLine());
 
-    System.out.print("이름? ");
-    name[size] = keyboardScan.nextLine();
-
-    System.out.print("이메일? ");
-    email[size] = keyboardScan.nextLine();
-
-    System.out.print("암호? ");
-    password[size] = keyboardScan.nextLine();
-
-    System.out.print("사진? ");
-    photo[size] = keyboardScan.nextLine();
-
-    System.out.print("전화? ");
-    tel[size] = keyboardScan.nextLine();
+    no[size] = Integer.parseInt(prompt("번호?"));
+    name[size] = prompt("이름?"); 
+    email[size] = prompt("이메일? ");
+    password[size] = prompt("암호? "); 
+    photo[size] =   prompt("사진? ");    
+    tel[size] = prompt("전화? ");
 
     registeredDate[size] = new Date(System.currentTimeMillis());
 
@@ -128,26 +119,14 @@ public class App {
   static void addProject() {
     System.out.println("[프로젝트 등록]");
 
-    System.out.print("번호? ");
-    pNo[pSize] = Integer.valueOf(keyboardScan.nextLine());
 
-    System.out.print("프로젝트명? ");
-    pTitle[pSize] = keyboardScan.nextLine();
-
-    System.out.print("내용? ");
-    pContent[pSize] = keyboardScan.nextLine();
-
-    System.out.print("시작일? ");
-    pStartDate[pSize] = Date.valueOf(keyboardScan.nextLine());
-
-    System.out.print("종료일? ");
-    pEndDate[pSize] = Date.valueOf(keyboardScan.nextLine());
-
-    System.out.print("만든이? ");
-    pOwner[pSize] = keyboardScan.nextLine();
-
-    System.out.print("팀원? ");
-    pMembers[pSize] = keyboardScan.nextLine();
+    pNo[pSize] = Integer.valueOf(prompt("번호?"));  
+    pTitle[pSize] = prompt("프로젝트명? ");    
+    pContent[pSize] =  prompt("내용? ");   
+    pStartDate[pSize] = Date.valueOf(prompt("시작일? ")); 
+    pEndDate[pSize] = Date.valueOf(prompt("종료일? "));
+    pOwner[pSize] = prompt("만든이? "); 
+    pMembers[pSize] = prompt("팀원? ");
 
     pSize++;
 
@@ -164,24 +143,21 @@ public class App {
   static void addTasks() {
     System.out.println("[작업 등록]");
 
-    System.out.print("번호? ");
-    tNo[tSize] = Integer.parseInt(keyboardScan.nextLine());
 
-    System.out.print("내용? ");
-    tContent[tSize] = keyboardScan.nextLine();
+    tNo[tSize] = Integer.parseInt(prompt("번호? "));
 
-    System.out.print("마감일? ");
-    tDeadline[tSize] = Date.valueOf(keyboardScan.nextLine());
 
-    System.out.println("상태?");
+    tContent[tSize] =  prompt("내용? ");
+
+
+    tDeadline[tSize] = Date.valueOf(prompt("마감일? "));
+
     System.out.println("0: 신규");
     System.out.println("1: 진행중");
     System.out.println("2: 완료");
     System.out.print("> ");
-    tStatus[tSize] = Integer.valueOf(keyboardScan.nextLine());
-
-    System.out.print("담당자? ");
-    tOwner[tSize] = keyboardScan.nextLine();
+    tStatus[tSize] = Integer.valueOf(prompt("상태?"));
+    tOwner[tSize] = prompt("담당자? ");
 
     tSize++;
   }
@@ -207,9 +183,14 @@ public class App {
     }
   }
 
-  static void prompt() {
-    System.out.print("명령> ");
-    input = keyboardScan.nextLine();
+  //prompt: 사용자로부터 문자열을 입력받는 기능 수행
+  //파라미터:title
+  //리턴값:String 
+
+  static String prompt(String title) {  //프롬프트를 실행하기 위해 문자열을 선언
+    System.out.print("title"); 
+    String input = keyboardScan.nextLine();
+    return input;
   }}
 
 
