@@ -15,17 +15,20 @@ public class Exam0221 {
     int no = keyScan.nextInt();
 
     System.out.println("제출하실 서류는 다음과 같습니다.");
+
+    final int a=1, b=2, c=3;
+
     switch (no) {
-      case 1:
+      case a:
         System.out.println("정보처리자격증");
         System.out.println("졸업증명서");
         System.out.println("이력서");
         break; // 여기까지만 실행한다.
-      case 2:
+      case b:
         System.out.println("졸업증명서");
         System.out.println("이력서");
         break; // 여기까지만 실행한다.
-      case 3:
+      case c:
         System.out.println("이력서");
         break; // 여기까지만 실행한다.
       default:

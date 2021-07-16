@@ -4,7 +4,7 @@ package com.eomcs.lang.ex04;
 //
 public class Exam0820 {
   public static void main(String[] args) {
-    
+
     int a = 100;
 
     {
@@ -12,6 +12,7 @@ public class Exam0820 {
       // 메서드 안에서는 변수 이름 중복 불가!
       // 안쪽 블록에서는 바깥 블록의 변수를 사용할 수 있다.
       a = 200;
+
 
       int b = 300;
       // 이 블록의 실행을 끝내는 순간 
