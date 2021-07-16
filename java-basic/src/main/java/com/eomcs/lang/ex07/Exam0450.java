@@ -4,6 +4,10 @@ package com.eomcs.lang.ex07;
 //
 public class Exam0450 {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b3c906a1a78aee77d91fc5f8f524bb46c0a04c0c
   static int sum(int value) {
     if (value == 1)
       return 1;

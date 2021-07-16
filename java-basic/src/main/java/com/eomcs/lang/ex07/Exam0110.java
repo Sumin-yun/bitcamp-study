@@ -8,7 +8,11 @@ public class Exam0110 {
   public static void main(String[] args) {
     Scanner keyScan = new Scanner(System.in);
     System.out.print("밑변의 길이? ");
+<<<<<<< HEAD
     int len = keyScan.nextInt();    //len 입력받은 값
+=======
+    int len = keyScan.nextInt();
+>>>>>>> b3c906a1a78aee77d91fc5f8f524bb46c0a04c0c
     keyScan.close();
 
     int starLen = 1;

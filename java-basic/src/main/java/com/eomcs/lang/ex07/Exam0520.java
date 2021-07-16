@@ -9,7 +9,11 @@ public class Exam0520 {
   // - 예)
   // > java -cp bin Exam0520 aaa bbb cccc
   // aaa bbb cccc 가 프로그램 아규먼트이다.
+<<<<<<< HEAD
   //
+=======
+  ///
+>>>>>>> b3c906a1a78aee77d91fc5f8f524bb46c0a04c0c
   public static void main(String[] args) {
     // 프로그램 아규먼트는 스트링 배열에 담겨서 main()를 호출할 때
     // 넘어온다.

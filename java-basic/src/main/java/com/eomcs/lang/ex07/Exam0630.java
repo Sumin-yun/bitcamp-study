@@ -12,6 +12,10 @@ public class Exam0630 {
 
     java.util.Set keySet = props.keySet();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b3c906a1a78aee77d91fc5f8f524bb46c0a04c0c
     for (Object key : keySet) {
       String value = System.getProperty((String) key);
       System.out.printf("%s = %s\n", key, value);
