@@ -3,36 +3,30 @@ package com.eomcs.pms.handler;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.pms.util.Prompt;
 
-public class TaskHandler {
+public class TaskHandle {
 
-  static final int LENGTH = 10;
+  static final int LENGTH = 10; 
   static Task[] tasks = new Task[LENGTH];
-  static int Size=0;
-
+  static int size = 0;
 
   public static void add() {
-    System.out.println("[작업 등록]");
 
     Task task = new Task();
+    System.out.println("[작업 등록]");
 
     task.no = Prompt.inputInt("번호? ");
     task.content = Prompt.inputString("내용? ");
     task.deadline = Prompt.inputDate("마감일? ");
-
-    System.out.println("상태?");
-    System.out.println("0: 신규");
-    System.out.println("1: 진행중");
-    System.out.println("2: 완료");
-    task.status = Prompt.inputInt("> ");
+    task.status = Prompt.inputInt("상태?\n0: 신규\n1: 진행중\n2: 완료\n> ");
     task.owner = Prompt.inputString("담당자? ");
 
-    tasks[Size++] = task;
+    tasks[size++] = task;
   }
 
   public static void list() {
     System.out.println("[작업 목록]");
 
-    for (int i = 0; i < Size; i++) {
+    for (int i = 0; i < size; i++) {
       String stateLabel = null;
       switch (tasks[i].status) {
         case 1:
@@ -44,14 +38,9 @@ public class TaskHandler {
         default:
           stateLabel = "신규";
       }
-
-      System.out.printf("%d, %s, %s, %s, %s\n",
-          tasks[i].no, 
-          tasks[i].content, 
-          tasks[i].deadline, 
-          stateLabel, 
-          tasks[i].owner);
+      // 번호, 작업명, 마감일, 프로젝트, 상태, 담당자
+      System.out.printf("%d, %s, %s, %s, %s\n", // 출력 형식 지정
+          tasks[i].no, tasks[i].content, tasks[i].deadline, stateLabel, tasks[i].owner);
     }
   }
-
 }
