@@ -28,7 +28,7 @@ public class MemberHandler {
     member.tel = Prompt.inputString("전화? ");
     member.registeredDate = new Date(System.currentTimeMillis());
 
-    this.members[this.size++] = member;  ///
+    this.members[this.size++] = member;  
   }
 
   //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
@@ -52,4 +52,101 @@ public class MemberHandler {
     }
     return false;
   }
+
+  public void detail() {
+    System.out.println("[게시글 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Member member = null;
+
+    for(int i = 0; i < size ; i++) {
+      if(no == members[i].no) {
+        member = members[i];
+        break;
+      }
+    }
+
+    if( member == null ) {
+      System.out.println("해당 번호의 회원이 없습니다.");
+      return;
+    }
+
+    System.out.printf("이름 : %s \n", member.name);
+    System.out.printf("이메일 : %s \n", member.email);
+    System.out.printf("전화 : %s \n", member.tel);
+  }
+
+  public void update() {
+    System.out.println("[게시글 변경]");
+    int no = Prompt.inputInt("번호? ");
+
+    Member member = null;
+
+    for (int i = 0; i < size; i++) {
+      if (no == members[i].no) {
+        member = members[i] ;
+        break;
+      }   
+    }
+
+    if(member == null) {
+      System.out.println("해당 번호의 회원이 없습니다.");
+      return;
+    }
+
+    String name = Prompt.inputString(String.format("이름?(%s)", member.name));
+    String email = Prompt.inputString(String.format("이메일?(%s)",member.email));
+
+    String input = Prompt.inputString("정말 변경하시겠습니까?");
+
+    if(input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("변경을 종료합니다.");
+      return;
+    }
+
+    member.name = name;
+    member.email = email;
+
+    System.out.println("게시글을 변경하였습니다."); 
+  }
+
+  public void delete() {
+    System.out.println("[게시글 삭제]");
+    int no = Prompt.inputInt("번호? ");
+
+    int memberIndex = -1;
+
+    for(int i = 0; i<size; i++) {
+      if(no == members[i].no) {
+        memberIndex = no;
+      }
+    }
+
+    if(memberIndex == -1) {
+      System.out.println("해당하는 번호의 회원이 없습니다.");
+      return;
+    }
+
+    for(int i = memberIndex+1 ; i<size; i++) {
+      members[i-1] = members[i];
+      break;
+    }
+
+    String input = Prompt.inputString("정말 삭제 하시겠습니까? (y/n)");
+
+    if(input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("삭제를 취소합니다.");
+    }
+
+    members[--size] = null;
+
+
+
+
+  }
+
+
+
+
+
 }

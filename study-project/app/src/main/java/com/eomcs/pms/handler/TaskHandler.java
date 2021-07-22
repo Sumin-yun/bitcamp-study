@@ -125,6 +125,41 @@ public class TaskHandler {
     task.owner = writer;
     System.out.println("작업을 변경했습니다.");
   }
+
+  public void delete() {
+    System.out.println("[작업 삭제]");
+    int no = Prompt.inputInt("번호?"); 
+
+    int boardIndex = -1;
+
+    for(int i = 0; i<this.size; i++ ) {
+      if(no == this.tasks[i].no) {
+        boardIndex = no;
+        break;
+      }
+    }
+
+    if(boardIndex == -1) {
+      System.out.println("해당 번호의 작업이 없습니다.");
+      return;
+    }
+
+    String input = Prompt.inputString("정말 삭제하시겠습니까?");
+    if (input.equalsIgnoreCase("n") || input.length() == 0 ) {
+      System.out.print("삭제를 취소하였습니다.");
+      return;
+    }
+
+
+    for(int i = boardIndex + 1; i < this.size; i++) {
+      this.tasks[i-1] = tasks[i];
+    }
+
+    this.tasks[--this.size] = null;    
+
+    System.out.println("게시글을 삭제하였습니다.");
+  }
+
 }
 
 

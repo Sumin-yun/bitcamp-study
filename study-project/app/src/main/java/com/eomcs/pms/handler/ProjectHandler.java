@@ -72,4 +72,95 @@ public class ProjectHandler {
           this.projects[i].members);
     }
   }
+
+  public void detail() {
+    System.out.println("[프로젝트 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Project project = null;
+
+    for(int i = 0; i < size; i++) {
+      if(projects[i].no == no ) {
+        project = this.projects[i];
+        break;
+      }
+    }
+
+    if(project == null) {
+      System.out.println("해당 번호의 프로젝트가 없습니다.");
+      return;
+    }    
+
+    System.out.printf("프로젝트 명: %s \n", project.title);
+    System.out.printf("내용: %s \n", project.content);
+    System.out.printf("시작일: %s \n", project.startDate);
+    System.out.printf("종료일: %s \n", project.endDate);  
+  }
+
+  public void update() {
+    System.out.println("[프로젝트 상세보기]");
+    int no = Prompt.inputInt("번호? ");
+
+    Project project = null;
+
+    for (int i = 0; i < this.size; i++) {
+      if(this.projects[i].no == no) {
+        project = this.projects[i]; 
+        break;
+      }
+    }
+
+    if (project == null) { 
+      System.out.println("등록된 프로젝트가 없습니다.");
+      return;
+    }
+
+    String title = Prompt.inputString(String.format("프로젝트명(%s)?", project.title));
+    String content = Prompt.inputString(String.format("내용(%s)?", project.content));
+
+    String input = Prompt.inputString("정말 변경하시겠습니까? (y/n)");
+
+    if(input.equalsIgnoreCase("N") || input.length() == 0 ) {
+      System.out.println("변경을 취소합니다.");
+      return;
+    }
+
+    project.title = title;
+    project.content = content;
+    System.out.println("게시글을 변경하였습니다.");
+  }
+
+  public void delete() {
+    System.out.println("[게시글 삭제]");
+    int no = Prompt.inputInt("번호? ");
+
+    int projectIndex = -1;
+
+    for(int i = 0; i<size; i++) {
+      if(projects[i].no == no) {
+        projectIndex = no;
+        break;
+      }
+    }
+
+    if(projectIndex == -1) {
+      System.out.println("등록된 프로젝트가 없습니다.");
+      return;
+    }
+
+    String input = Prompt.inputString("정말 삭제 하시겠습니까?");
+
+    if(input.equalsIgnoreCase("n") || input.length() == 0) {
+      System.out.println("삭제를 종료합니다.");
+    }
+
+    for(int i = projectIndex+1; i<this.size; i++) {
+      this.projects[i-1] = this.projects[i];     
+    }
+
+    this.projects[--this.size] = null;
+    System.out.println("프로젝트 삭제를 완료하였습니다.");
+
+  }
+
 }
