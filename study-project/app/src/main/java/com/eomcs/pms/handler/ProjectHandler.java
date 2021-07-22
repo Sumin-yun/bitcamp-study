@@ -6,11 +6,14 @@ import com.eomcs.util.Prompt;
 public class ProjectHandler {
 
   static final int MAX_LENGTH = 5;
-  static Project[] projects = new Project[MAX_LENGTH];
-  static int size = 0;
+
+  Project[] projects = new Project[MAX_LENGTH];
+  int size = 0;
 
   //다른 패키지에 있는 App 클래스가 다음 메서드를 호출할 수 있도록 공개한다.
-  public static void add() {
+  // MemberHandler memberHandler = new MemberHandler();
+
+  public void add(MemberHandler memberHandler) {
     System.out.println("[프로젝트 등록]");
 
     Project project = new Project();
@@ -21,9 +24,10 @@ public class ProjectHandler {
     project.startDate = Prompt.inputDate("시작일? ");
     project.endDate = Prompt.inputDate("종료일? ");
 
+
     while (true) {
       String owner = Prompt.inputString("만든이?(취소:빈 문자열)");
-      if (MemberHandler.exist(owner)) {
+      if (memberHandler.exist(owner)) {
         project.owner = owner;
         break;
       } else if (owner.length() == 0) {
@@ -39,7 +43,7 @@ public class ProjectHandler {
     String members = " ";
     while(true) {
       String member = Prompt.inputString("팀원?(완료: 빈문자열)");
-      if(MemberHandler.exist(member)) {
+      if(memberHandler.exist(member)) {
         if (member.length() > 0) {
           members += ",";
         }
@@ -53,19 +57,19 @@ public class ProjectHandler {
     }
     project.members = members;
 
-    projects[size++] = project;
+    this.projects[this.size++] = project;
   }
 
-  public static void list() {
+  public void list() {
     System.out.println("[프로젝트 목록]");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < this.size; i++) {
       System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
-          projects[i].no, 
-          projects[i].title, 
-          projects[i].startDate, 
-          projects[i].endDate, 
-          projects[i].owner,
-          projects[i].members);
+          this.projects[i].no, 
+          this.projects[i].title, 
+          this.projects[i].startDate, 
+          this.projects[i].endDate, 
+          this.projects[i].owner,
+          this.projects[i].members);
     }
   }
 }
