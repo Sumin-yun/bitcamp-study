@@ -12,8 +12,8 @@ public class App {
 
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
-    TaskHandler taskHandler = new TaskHandler();
     ProjectHandler projectHandler = new ProjectHandler();
+    TaskHandler taskHandler = new TaskHandler();
 
     while (true) {
       String input = Prompt.inputString("명령> ");
@@ -27,16 +27,16 @@ public class App {
       } else if (input.equals("/member/list")) {
         memberHandler.list();
 
-      }  else if (input.equals("/member/detail")) {
+      } else if (input.equals("/member/detail")) {
         memberHandler.detail();
 
-      }  else if (input.equals("/member/update")) {
+      } else if (input.equals("/member/update")) {
         memberHandler.update();
 
       } else if (input.equals("/member/delete")) {
         memberHandler.delete();
 
-      } else if (input.equals("/project/add")) {
+      }  else if (input.equals("/project/add")) {
         projectHandler.add(memberHandler);
 
       }  else if (input.equals("/project/list")) {
@@ -45,13 +45,13 @@ public class App {
       }  else if (input.equals("/project/detail")) {
         projectHandler.detail();
 
-      } else if (input.equals("/project/update")) {
-        projectHandler.update();
+      }  else if (input.equals("/project/update")) {
+        projectHandler.update(memberHandler);
 
-      } else if (input.equals("/project/delete")) {
+      }  else if (input.equals("/project/delete")) {
         projectHandler.delete();
 
-      }else if (input.equals("/task/add")) {
+      }  else if (input.equals("/task/add")) {
         taskHandler.add(memberHandler);
 
       }  else if (input.equals("/task/list")) {
@@ -60,29 +60,28 @@ public class App {
       }  else if (input.equals("/task/detail")) {
         taskHandler.detail();
 
-      } else if (input.equals("/task/update")) {
-        taskHandler.update();
+      }  else if (input.equals("/task/update")) {
+        taskHandler.update(memberHandler);
 
-      } else if (input.equals("/task/delete")) {
+      }  else if (input.equals("/task/delete")) {
         taskHandler.delete();
 
-      } else if (input.equals("/board/add")) {
+      }  else if (input.equals("/board/add")) {
         boardHandler.add();
 
-      } else if (input.equals("/board/list")) {
+      }  else if (input.equals("/board/list")) {
         boardHandler.list();
 
       }  else if (input.equals("/board/detail")) {
         boardHandler.detail();
 
-      } else if (input.equals("/board/update")) {
+      }  else if (input.equals("/board/update")) {
         boardHandler.update();
 
-      } else if (input.equals("/board/delete")) {
+      }  else if (input.equals("/board/delete")) {
         boardHandler.delete();
 
-      }  
-      else {
+      } else {
         System.out.println("실행할 수 없는 명령입니다.");
       }
       System.out.println();

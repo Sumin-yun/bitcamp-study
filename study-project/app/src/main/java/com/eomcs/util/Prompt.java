@@ -26,10 +26,7 @@ public class Prompt {
   public static void close() {
     keyboardScan.close();
   }
-
 }
-
-
 
 
 
