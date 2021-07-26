@@ -12,8 +12,13 @@ public class App {
 
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler();
-    TaskHandler taskHandler = new TaskHandler();
+    ProjectHandler projectHandler = new ProjectHandler(memberHandler);
+
+    //projectHandler 메서드가 사용할 의존 객체는 다음과 같이 인스턴스 변수에 미리 주입한다.
+    //주입하지 않으면? 해당 의존 객체를 사용하는 메서드를 호출할 때 실행 오류가 발생한다.
+    //따라서 의존객체 주입을 강제한다. -> 생성자 도입.
+
+    TaskHandler taskHandler = new TaskHandler(memberHandler);
 
     while (true) {
       String input = Prompt.inputString("명령> ");
@@ -37,7 +42,7 @@ public class App {
         memberHandler.delete();
 
       }  else if (input.equals("/project/add")) {
-        projectHandler.add(memberHandler);
+        projectHandler.add();
 
       }  else if (input.equals("/project/list")) {
         projectHandler.list();
@@ -46,13 +51,13 @@ public class App {
         projectHandler.detail();
 
       }  else if (input.equals("/project/update")) {
-        projectHandler.update(memberHandler);
+        projectHandler.update();
 
       }  else if (input.equals("/project/delete")) {
         projectHandler.delete();
 
       }  else if (input.equals("/task/add")) {
-        taskHandler.add(memberHandler);
+        taskHandler.add();
 
       }  else if (input.equals("/task/list")) {
         taskHandler.list();
@@ -61,7 +66,7 @@ public class App {
         taskHandler.detail();
 
       }  else if (input.equals("/task/update")) {
-        taskHandler.update(memberHandler);
+        taskHandler.update();
 
       }  else if (input.equals("/task/delete")) {
         taskHandler.delete();
