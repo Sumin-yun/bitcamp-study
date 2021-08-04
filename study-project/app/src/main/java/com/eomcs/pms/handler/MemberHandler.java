@@ -25,6 +25,17 @@ public class MemberHandler {
     member.registeredDate = new Date(System.currentTimeMillis());
 
     this.members[this.size++] = member;
+
+    if( this.size == this.members.length ) {
+      Member arr = new Member[this.members.length + this.members.length/2] ; 
+    }
+
+    for(int i = 0; i<members.length; i++) {
+      arr[i] = members[i];
+    } 
+    this.members = arr;
+
+    System.out.println("새 Board[] 객체를 만듦!!");
   }
 
   public void list() {
