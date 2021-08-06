@@ -6,20 +6,11 @@ import com.eomcs.util.Prompt;
 
 public class MemberHandler {
 
-  MemberList memberList = new MemberList();
+  List memberList ;
 
-  static class Node {
-    Member member;
-    Node next;
-
-    public Node(Member member) {
-      this.member = member;
-    }
+  public MemberHandler(List memberList) {
+    this.memberList = memberList;
   }
-
-  Node head;
-  Node tail;
-  int size = 0;
 
   public void add() {
     System.out.println("[회원 등록]");
@@ -40,25 +31,24 @@ public class MemberHandler {
   public void list() {
     System.out.println("[회원 목록]");
 
-    Member[] list = memberList.toArray();
-    //new Array 에서 리턴한 배열을 list에 담는다.
+    Object[] list = memberList.toArray();
 
-    for(Member member : list ) {
+    for (Object obj : list) {
+      Member member = (Member) obj;
       System.out.printf("%d, %s, %s, %s, %s\n", 
           member.no, 
           member.name, 
           member.email, 
           member.tel, 
           member.registeredDate);
-    } 
+    }
   }
-
 
   public void detail() {
     System.out.println("[회원 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Member member = memberList.findByNo(no);
+    Member member = findByNo(no);
 
     if (member == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -76,7 +66,7 @@ public class MemberHandler {
     System.out.println("[회원 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Member member = memberList.findByNo(no);
+    Member member = findByNo(no);
 
     if (member == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -108,7 +98,7 @@ public class MemberHandler {
     System.out.println("[회원 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    Member member = memberList.findByNo(no);
+    Member member = findByNo(no);
 
     if (member == null) {
       System.out.println("해당 번호의 회원이 없습니다.");
@@ -126,24 +116,41 @@ public class MemberHandler {
     System.out.println("회원을 삭제하였습니다.");
   }
 
-  boolean exist(String name) {
-    Node node = head;
-    while (node != null) {
-      if (node.member.name.equals(name)) {
+  private Member findByNo(int no) {
+    Object[] arr = memberList.toArray();
+    for (Object obj : arr) {
+      Member member = (Member) obj;
+      if (member.no == no) {
+        return member;
+      }
+    }
+    return null;
+  }
+
+  public boolean exist(String name) {
+    Object[] arr = memberList.toArray();
+    for (Object obj : arr) {
+      Member member = (Member) obj;
+      if (member.name.equals(name)) {
         return true;
       }
-      node = node.next;
     }
     return false;
   }
 
-  public MemberList getMemberList() {
-    // TODO Auto-generated method stub
-    return memberList;
+  public String promptMember(String label) {
+    while (true) {
+      String owner = Prompt.inputString(label);
+      if (this.exist(owner)) {
+        return owner;
+      } else if (owner.length() == 0) {
+        return null;
+      }
+      System.out.println("등록된 회원이 아닙니다.");
+    }
   }
+
 }
-
-
 
 
 

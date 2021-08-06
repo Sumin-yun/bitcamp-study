@@ -6,19 +6,12 @@ import com.eomcs.util.Prompt;
 
 public class BoardHandler {
 
-  BoardList boardList = new BoardList();
+  List boardList;     //추상클래스로 상속구현했기 때문에,
+  //new ArryaList와 LinkedList 둘다 올 수 있다. (대체가 쉬움)
 
-  static class Node {
-    Board board;
-    Node next;
-
-    public Node(Board board) {
-      this.board = board;
-    }
+  public BoardHandler(List boardList) {
+    this.boardList = boardList;
   }
-
-  Node head;
-  Node tail;
 
   public void add() {
     System.out.println("[새 게시글]");
@@ -37,9 +30,10 @@ public class BoardHandler {
   public void list() {
     System.out.println("[게시글 목록]");
 
-    Board[] list = boardList.toArray();
+    Object[] list = boardList.toArray();
 
-    for (Board board : list) {
+    for (Object obj : list) {
+      Board board = (Board) obj;
       System.out.printf("%d, %s, %s, %s, %d, %d\n", 
           board.no, 
           board.title, 
@@ -47,14 +41,14 @@ public class BoardHandler {
           board.registeredDate,
           board.viewCount, 
           board.like);
-    } 
+    }
   }
 
   public void detail() {
     System.out.println("[게시글 상세보기]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = boardList.findByNo(no);
+    Board board = findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -72,7 +66,7 @@ public class BoardHandler {
     System.out.println("[게시글 변경]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = boardList.findByNo(no);
+    Board board = findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
@@ -93,18 +87,16 @@ public class BoardHandler {
     System.out.println("게시글을 변경하였습니다.");
   }
 
-
   public void delete() {
     System.out.println("[게시글 삭제]");
     int no = Prompt.inputInt("번호? ");
 
-    Board board = boardList.findByNo(no);
+    Board board = findByNo(no);
 
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다.");
       return;
-    }       //게시글이 없을 떄
-
+    }
 
     String input = Prompt.inputString("정말 삭제하시겠습니까?(y/N) ");
     if (input.equalsIgnoreCase("n") || input.length() == 0) {
@@ -115,8 +107,19 @@ public class BoardHandler {
     boardList.remove(board);
 
     System.out.println("게시글을 삭제하였습니다.");
+
   }
 
+  private Board findByNo(int no) {
+    Object[] arr = boardList.toArray();
+    for (Object obj : arr) {
+      Board board = (Board) obj;
+      if (board.no == no) {
+        return board;
+      }
+    }
+    return null;
+  }
 }
 
 
