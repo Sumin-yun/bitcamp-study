@@ -1,159 +1,123 @@
 package com.eomcs.pms;
 
-import com.eomcs.pms.handler.ArrayList;
 import com.eomcs.pms.handler.BoardHandler;
-import com.eomcs.pms.handler.LinkedList;
-import com.eomcs.pms.handler.List;
 import com.eomcs.pms.handler.MemberHandler;
 import com.eomcs.pms.handler.ProjectHandler;
 import com.eomcs.pms.handler.TaskHandler;
-import com.eomcs.pms.menu.Menu;
-import com.eomcs.pms.menu.MenuGroup;
 import com.eomcs.util.Prompt;
 
 public class App {
 
-  List boardList = new ArrayList();     //생성자를 통해 의존객체를 추입받는다.
-  List memberList = new LinkedList();
-  List projectList = new ArrayList();
-  List taskList = new LinkedList();
-
-  BoardHandler boardHandler = new BoardHandler(boardList);
-  MemberHandler memberHandler = new MemberHandler(memberList);
-  ProjectHandler projectHandler = new ProjectHandler(projectList,memberHandler);
-  TaskHandler taskHandler = new TaskHandler(taskList,memberHandler);
-
   public static void main(String[] args) {
-    App app = new App(); 
-    app.service();
-  }
 
-  void service() {
-    createMenu().execute();
+    BoardHandler boardHandler = new BoardHandler();
+    MemberHandler memberHandler = new MemberHandler();
+
+    ProjectHandler projectHandler = new ProjectHandler(memberHandler);
+    TaskHandler taskHandler = new TaskHandler(memberHandler);
+
+
+    while (true) {
+
+      String input = null;
+
+      System.out.println("[메인]");
+      System.out.println("1. 게시판");
+      System.out.println("2. 회원");
+      System.out.println("3. 프로젝트");
+      System.out.println("4. 작업");
+      System.out.println("0. 종료");
+      int menuNo = Prompt.inputInt("메인> ");
+
+      if (menuNo == 0) {        //메인에서 0을 입력하면 나가기.
+        input = "quit";         //그게 아니면 반복문의 맨 처음으로.. (continue)
+      } else {
+        continue;
+      }
+
+      if (input.equals("exit") || input.equals("quit")) {
+        System.out.println("안녕!");
+        break;
+      } else if (input.equals("/member/add")) {
+        memberHandler.add();
+
+      } else if (input.equals("/member/list")) {
+        memberHandler.list();
+
+      } else if (input.equals("/member/detail")) {
+        memberHandler.detail();
+
+      } else if (input.equals("/member/update")) {
+        memberHandler.update();
+
+      } else if (input.equals("/member/delete")) {
+        memberHandler.delete();
+
+      }  else if (input.equals("/project/add")) {
+        // add() 메서드가 사용할 의존 객체를 미리 주입했기 때문에
+        // 이제 파라미터로 전달할 필요가 없다.
+        //        projectHandler.add(memberHandler); // 이전 코드 
+        projectHandler.add();
+
+      }  else if (input.equals("/project/list")) {
+        projectHandler.list();
+
+      }  else if (input.equals("/project/detail")) {
+        projectHandler.detail();
+
+      }  else if (input.equals("/project/update")) {
+        // update() 메서드가 사용할 의존 객체를 미리 주입했기 때문에
+        // 이제 파라미터로 전달할 필요가 없다.
+        //        projectHandler.update(memberHandler); // 이전 코드
+        projectHandler.update();
+
+      }  else if (input.equals("/project/delete")) {
+        projectHandler.delete();
+
+      }  else if (input.equals("/task/add")) {
+        // add() 메서드가 사용할 의존 객체를 미리 주입했기 때문에
+        // 이제 파라미터로 전달할 필요가 없다.
+        //        taskHandler.add(memberHandler); // 이전 코드
+        taskHandler.add();
+
+      }  else if (input.equals("/task/list")) {
+        taskHandler.list();
+
+      }  else if (input.equals("/task/detail")) {
+        taskHandler.detail();
+
+      }  else if (input.equals("/task/update")) {
+        // update() 메서드가 사용할 의존 객체를 미리 주입했기 때문에
+        // 이제 파라미터로 전달할 필요가 없다.
+        //        taskHandler.update(memberHandler); // 이전 코드
+        taskHandler.update();
+
+      }  else if (input.equals("/task/delete")) {
+        taskHandler.delete();
+
+      }  else if (input.equals("/board/add")) {
+        boardHandler.add();
+
+      }  else if (input.equals("/board/list")) {
+        boardHandler.list();
+
+      }  else if (input.equals("/board/detail")) {
+        boardHandler.detail();
+
+      }  else if (input.equals("/board/update")) {
+        boardHandler.update();
+
+      }  else if (input.equals("/board/delete")) {
+        boardHandler.delete();
+
+      } else {
+        System.out.println("실행할 수 없는 명령입니다.");
+      }
+      System.out.println();
+    }
+
+    // Prompt 가 소유하고 관리하고 있는 자원을 닫으라고 명령한다. 
     Prompt.close();
-  }
-
-  Menu createMenu() {
-    MenuGroup mainMenuGroup = new MenuGroup("메인");
-    mainMenuGroup.setPrevMenuTitle("종료");
-
-    MenuGroup boardMenu = new MenuGroup("게시판");
-    mainMenuGroup.add(boardMenu);
-
-    boardMenu.add(new Menu("등록") {
-      @Override
-      public void execute() {
-        boardHandler.add(); 
-      }});
-    boardMenu.add(new Menu("목록") {
-      @Override
-      public void execute() {
-        boardHandler.list(); 
-      }});
-    boardMenu.add(new Menu("상세보기") {
-      @Override
-      public void execute() {
-        boardHandler.detail(); 
-      }});
-    boardMenu.add(new Menu("변경") {
-      @Override
-      public void execute() {
-        boardHandler.update(); 
-      }});
-    boardMenu.add(new Menu("삭제") {
-      @Override
-      public void execute() {
-        boardHandler.delete(); 
-      }});
-
-    MenuGroup memberMenu = new MenuGroup("회원");
-    mainMenuGroup.add(memberMenu);
-
-    memberMenu.add(new Menu("등록") {
-      @Override
-      public void execute() {
-        memberHandler.add(); 
-      }});
-    memberMenu.add(new Menu("목록") {
-      @Override
-      public void execute() {
-        memberHandler.list(); 
-      }});
-    memberMenu.add(new Menu("상세보기") {
-      @Override
-      public void execute() {
-        memberHandler.detail(); 
-      }});
-    memberMenu.add(new Menu("변경") {
-      @Override
-      public void execute() {
-        memberHandler.update(); 
-      }});
-    memberMenu.add(new Menu("삭제") {
-      @Override
-      public void execute() {
-        memberHandler.delete(); 
-      }});
-
-    MenuGroup projectMenu = new MenuGroup("프로젝트");
-    mainMenuGroup.add(projectMenu);
-
-    projectMenu.add(new Menu("등록") {
-      @Override
-      public void execute() {
-        projectHandler.add(); 
-      }});
-    projectMenu.add(new Menu("목록") {
-      @Override
-      public void execute() {
-        projectHandler.list(); 
-      }});
-    projectMenu.add(new Menu("상세보기") {
-      @Override
-      public void execute() {
-        projectHandler.detail(); 
-      }});
-    projectMenu.add(new Menu("변경") {
-      @Override
-      public void execute() {
-        projectHandler.update(); 
-      }});
-    projectMenu.add(new Menu("삭제") {
-      @Override
-      public void execute() {
-        projectHandler.delete(); 
-      }});
-
-    MenuGroup taskMenu = new MenuGroup("작업");
-    mainMenuGroup.add(taskMenu);
-
-    taskMenu.add(new Menu("등록") {
-      @Override
-      public void execute() {
-        taskHandler.add(); 
-      }});
-    taskMenu.add(new Menu("목록") {
-      @Override
-      public void execute() {
-        taskHandler.list(); 
-      }});
-    taskMenu.add(new Menu("상세보기") {
-      @Override
-      public void execute() {
-        taskHandler.detail(); 
-      }});
-    taskMenu.add(new Menu("변경") {
-      @Override
-      public void execute() {
-        taskHandler.update(); 
-      }});
-    taskMenu.add(new Menu("삭제") {
-      @Override
-      public void execute() {
-        taskHandler.delete(); 
-      }});
-
-    return mainMenuGroup;
   }
 }
 
