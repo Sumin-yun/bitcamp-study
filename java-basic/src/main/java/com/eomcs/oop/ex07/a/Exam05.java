@@ -12,13 +12,13 @@ abstract class Letter {
 
   // 수퍼 클래스에서 기능이 어떻게 동작하는지 정의한다.
   public void print() {
-    this.printHeader();
+    this.printHeader();     //자식클래스의 메서드가 호출된다.
     System.out.println(this.content);
     System.out.println();
-    System.out.printf("              From %s!\n", this.getSign());
+    System.out.printf("From %s!\n", this.getSign());
     System.out.println();
     this.printFooter();
-  }
+  } 
 
   // 세부 사항에 대한 것은
   // 서브 클래스에게 구현을 맡긴다.

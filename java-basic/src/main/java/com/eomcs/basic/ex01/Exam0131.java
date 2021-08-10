@@ -4,7 +4,7 @@ package com.eomcs.basic.ex01;
 
 
 public class Exam0131 {
-  
+
   public static void main(String[] args) {
     My obj1 = new My();
     obj1.name = "홍길동";
@@ -13,7 +13,7 @@ public class Exam0131 {
     obj1.email = "hong@test.com";
     obj1.gender = 1;
     obj1.working = false;
-    
+
     My obj2 = new My();
     obj2.name = "홍길동";
     obj2.age = 20;
@@ -21,9 +21,12 @@ public class Exam0131 {
     obj2.email = "hong@test.com";
     obj2.gender = 1;
     obj2.working = false;
-    
+
     System.out.println(obj1 == obj2);
-    System.out.println(obj1.equals(obj2));
+    System.out.println(obj1.equals(obj2));  
+
+    //equals를 오버라이딩 하지 않았을 때: 두개의 인스턴스를 비교
+    //equals를 오버라이딩 했을 때: 두개의 값을 비교.
 
     // 결론!
     // => Object에서 상속 받은 것을 그대로 사용하면 equals()는 인스턴스가 같은지 비교한다.
@@ -31,7 +34,7 @@ public class Exam0131 {
     // => String와 wrapper 클래스는 equals() 오버라이딩 하였다.
     // => StringBuffer 클래스는 equals()를 오버라이딩 하지 않았다.
   }
-  
+
   static class My {
     String name;
     int age;
@@ -39,11 +42,11 @@ public class Exam0131 {
     String email;
     int gender;
     boolean working;
-    
+
     @Override
     public boolean equals(Object obj) {
-      if (this == obj)
-        return true;
+      if (this == obj)          //this는 null이 아니다!
+        return true;        
       if (obj == null)
         return false;
       if (getClass() != obj.getClass())
@@ -72,7 +75,7 @@ public class Exam0131 {
         return false;
       return true;
     }
-    
+
 
   }
 

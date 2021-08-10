@@ -20,7 +20,7 @@ class A3Sub extends A3 {
   @Override // 이 애노테이션은 빼도 된다.
   public void m1() {
     System.out.println("A3Sub.m1() 호출됨!");
-  }
+  }     // 추상메서드를 구현하면 일반 클래스로도 상속 가능!
 
   public void m2() {
     System.out.println("A3Sub.m2() 호출됨!");
@@ -29,7 +29,7 @@ class A3Sub extends A3 {
 
 public class Exam03 {
   public static void main(String[] args) {
-    A3 obj;
+    A3 obj; 
 
     // 추상 클래스의 인스턴스는 생성 불가!
     //    obj = new A3(); // Error!

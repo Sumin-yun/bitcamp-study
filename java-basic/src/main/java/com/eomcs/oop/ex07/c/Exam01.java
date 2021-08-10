@@ -17,7 +17,7 @@ public class Exam01 {
 
     // 두 개의 정렬 객체가 같은 타입이기 때문에 사용하기 편하다.
     // => 언제든 다른 객체로 교체할 수 있어 유연하다.
-    display(new BubbleSort(), values);
+    display(new BubbleSort(), values); 
     display(new QuickSort(), values2);
   }
 

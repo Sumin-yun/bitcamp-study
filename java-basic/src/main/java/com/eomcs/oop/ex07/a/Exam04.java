@@ -32,6 +32,7 @@ abstract class A4 {
 
 class A4Sub extends A4 {
   @Override // 이 애노테이션은 빼도 된다.
+  //추상 클래스의 메서드를 구현하는 것도 오버라이딩으로 본다.  
   public void m3() {
     System.out.println("A4Sub.m3() 호출됨!");
   }
