@@ -12,8 +12,8 @@ public class Exam0110 {
   }
 
   // 인터페이스를 준수한다는 것은
-  // 인터페이스의 모든 규칙을 구현해야 함을 의미한다.
-  class ProtocolAImpl implements ProtocolA {
+  // 인터페이스의  모든!! 규칙을 구현해야 함을 의미한다.
+  class ProtocolX implements ProtocolA {
     @Override
     public void rule1() {}
 

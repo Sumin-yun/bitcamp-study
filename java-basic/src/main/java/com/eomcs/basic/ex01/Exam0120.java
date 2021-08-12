@@ -25,6 +25,7 @@ public class Exam0120 {
     // println()에 넘겨주는 값이 String 타입이 아니라면
     // println()은 그 객체에 대해 toString() 호출한 후 그 리턴 값을 출력한다.
     // 따라서 다음 코드는 위의 코드와 같다.
+
     System.out.println(obj); 
 
     // 해시값?
@@ -38,7 +39,6 @@ public class Exam0120 {
     My obj3 = new My();
 
     System.out.println(obj2 == obj3);
-
     System.out.println(obj2.toString());
     System.out.println(obj3.toString());
   }
