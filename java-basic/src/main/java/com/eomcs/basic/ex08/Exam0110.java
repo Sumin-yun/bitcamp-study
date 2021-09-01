@@ -25,6 +25,7 @@ public class Exam0110 {
     map.put("s04", new Member("안중근", 20));
 
     // 이전에 저장할 때 사용한 같은 키로 다른 값을 저장하면 기존 값을 덮어쓴다.
+    // 임꺽정,30 은 가비지가 된다.
     map.put("s02", new Member("윤봉길", 30));
 
     // get(key) : 맵에서 값 꺼내기

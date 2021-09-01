@@ -7,7 +7,7 @@ public class Exam0210 {
     void print();
   }
 
-  public static void main(final String[] args) {
+  public static void main( String[] args) {
 
     A obj = new A() {
 

@@ -54,10 +54,68 @@ public class Exam0240 {
     Member m2 = new Member("임꺽정", 30);
     Member m3 = new Member("유관순", 17);
 
+
+
     ArrayList<Member> list = new ArrayList<>();
     list.add(m1);
     list.add(m2);
     list.add(m3);
+
+    //   목록조회5.
+    //    class MyConsumer implements Consumer<Member>{
+    //      public void accept(Member m) {
+    //        System.out.printf("이름:s, 나이:%d", m.name, m.age);
+    //      }
+    //    }
+    //    list.forEach(new MyConsumer());
+    //  }
+
+    //    목록조회4. 
+    //    Iterator<Member> iterator = list.iterator();
+    //    while(iterator.hasNext()) {
+    //    Member m = iterator.next();
+    //      System.out.printf("이름:%s, 나이:%d", m.name, m.age);
+    //    }
+
+    //   목록조회3-1
+    //   Member[] arr = list.toArray(new Member[0]);
+    //   for (Member m: arr) {
+    //      System.out.prinf("이름: %s, 나이:%d", m.name, m.age);
+    //    }
+    //    ArryaList는 배열이 가득차면 새로운 배열을 만들기 때문에 사이즈 지정을 하지 않아도되지만 
+    //   위와 같은 방법으로 하면 가비지가 많이 생긴다.
+
+    //   목록조회3.toArray(E[]) 사용
+    //   Member[] arr = list.toArray(new Member[list.size()]);
+    //   for(Member m : arr) {
+    //      System.out.printf("이름: %s, 나이:%d\n", m.name, m.age);
+    //   }
+
+    //    목록조회2. toArray()사용
+    //    Object[] arr = list.toArray();
+    //    for(Object obj : list) {
+    //      Member m = (Member) obj;
+    //      System.out.printf("이름:%s, 나이:%d", m.name, m.age);
+    //    }
+
+    //    목록조회1.반복문 사용
+    //    for(int i = 0; i<list.size(); i++) {
+    //      System.out.println(list.get(i))
+    //    }
+
+
+    //    Iterator<Member> iterator = list.iterator();
+    //    while (iterator.hasNext()) {
+    //      Member m = iterator.next();
+    //      System.out.printf("%s(%d)\n", m.name, m.age);
+    //    }
+
+
+
+    //forEach() 메서드에게 넘길 객체
+    // -> Consumer 규칙에 따라 만들어야 한다.
+    // -> List 보관 객체를 반복문을 통해 꺼낼때 마다 
+    //Consumer 규칙에 따라 accept()를 호출할 것이다.
 
     class MyConsumer implements Consumer<Member> {
       @Override
@@ -69,6 +127,9 @@ public class Exam0240 {
       }
     }
 
+    // 의미: 
+    // -> 야 list. 너가 가지고 있는 목록에서 값을 한개 꺼낼 떄 마다,
+    // 내가 지금 넘겨주는 MyConsumer 파라미터 accept()를 호출해줘.
     list.forEach(new MyConsumer());
   }
 }

@@ -7,6 +7,8 @@ public class Exam0410 {
     double compute(int money);
   }
 
+  //팩토리 메서드 - 객체 생성 과정이 목잡할때,interest 구현체를 생성하여 리턴하는 메서드
+
   static Interest getInterest(final double rate) {
     // 로컬 클래스로 인터페이스 구현한 후 객체 리턴하기
     class InterestImpl implements Interest {
@@ -25,10 +27,10 @@ public class Exam0410 {
   }
 
   public static void main(String[] args) {
-    Interest i1 = getInterest(1.5);
+    Interest i1 = getInterest(1.5);     //1.5프로 이자 계산
     System.out.printf("금액: %.2f\n", i1.compute(1_0000_0000));
 
-    Interest i2 = getInterest(2.5);
+    Interest i2 = getInterest(2.5);    //2.5프로 이자 계산     
     System.out.printf("금액: %.2f\n", i2.compute(1_0000_0000));
   }
 

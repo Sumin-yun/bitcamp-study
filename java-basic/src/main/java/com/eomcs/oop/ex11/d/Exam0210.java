@@ -25,7 +25,7 @@ class C {
         System.out.printf("v1 = %d\n", C.this.v1);
       }
     }
-    X obj = new X();
+    X obj = new X();    
     obj.f();
   }
 }

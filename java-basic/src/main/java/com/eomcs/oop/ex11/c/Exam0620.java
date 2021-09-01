@@ -22,7 +22,7 @@ class H {
       System.out.printf("H.this.v1 = %d\n", H.this.v1);
 
       System.out.printf("v2 = %d\n", v2);
-      System.out.printf("v3 = %d\n", v3);
+      System.out.printf("v3 = %d\n", v3);   //h.this 생략.
     }
   }
 }

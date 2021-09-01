@@ -41,6 +41,7 @@ public class Exam0610 {
     Calculator 청년행복예금 = new Calculator(10);
 
     System.out.println("[보통예금]");
+
     Interest i1 = 보통예금::year;
     //    Interest i1 = new Interest() {
     //      @Override

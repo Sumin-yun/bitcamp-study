@@ -7,7 +7,7 @@ public class Exam0440 {
     void print();
   }
 
-  void m1(A obj) {
+  static void m1(A obj) {
     obj.print();
   }
 
@@ -21,7 +21,7 @@ public class Exam0440 {
         System.out.println("XXXXX");
       }
     }
-    r.m1(new X());
+    m1(new X());
 
     // 2) 익명 클래스 만들기
     A obj = new A() {
@@ -30,10 +30,10 @@ public class Exam0440 {
         System.out.println("익명 클래스!!!");
       }
     };
-    r.m1(obj);
+    m1(obj);
 
     // 3) 익명 클래스를 파라미터 자리에 바로 삽입
-    r.m1(new A() {
+    m1(new A() {
       @Override
       public void print() {
         System.out.println("안녕!!!");

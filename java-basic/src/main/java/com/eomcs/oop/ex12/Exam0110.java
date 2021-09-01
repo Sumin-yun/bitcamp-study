@@ -13,6 +13,7 @@ public class Exam0110 {
   public static void main(String[] args) {
 
     // 익명 클래스로 인터페이스 구현하기
+    // 오브젝트의 기본 생성자
     Player p1 = new Player() {
       @Override
       public void play() {
@@ -22,9 +23,10 @@ public class Exam0110 {
     p1.play();
 
     // 람다 문법으로 인터페이스 구현하기
-    // => 메서드 한 개짜리 인터페이스를 구현한 익명 클래스를 
-    //    좀 더 간단히 표현하기 위해 만든 문법이다.
+    // => 메서드 한 개짜리 인터페이스를 좀 더간결히 구현하기 위해 만든 문법
     // => 뻔한 코드 생략!
+    // 인터페이스, 메서드 이름 생략, 인터페이스 껍데기 생
+    // 파라미터와 메서드 사이 화살표
     Player p2 = () -> {
       System.out.println("람다");
     };

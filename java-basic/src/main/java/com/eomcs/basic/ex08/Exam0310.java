@@ -14,13 +14,13 @@ public class Exam0310 {
     map.put("s04", new Member("안중근", 20));
     map.put("s05", new Member("윤봉길", 30));
 
-    Set<String> keys = map.keySet();
+    Set<String> keys = map.keySet();    //기존 키목록을 가리킨다.
     // keySet() 이 리턴하는 것은 HashMap의 key 목록을 다루는 객체이다.
     // 별도로 key 목록을 만들어 리턴하지 않는다.
 
     // 따라서 다음과 같이 맵의 데이터를 지운다면,
     // 당연히 키 목록에서 해당 키도 삭제될 것이다.
-    map.remove("s01");
+    map.remove("s01");  
     map.remove("s02");
     map.remove("s03");
 

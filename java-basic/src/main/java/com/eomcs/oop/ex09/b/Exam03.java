@@ -23,6 +23,7 @@ interface MyInterface3 {
   };
 }
 
+
 // 2) 인터페이스 구현
 class MyInterface3Impl implements MyInterface3 {
 

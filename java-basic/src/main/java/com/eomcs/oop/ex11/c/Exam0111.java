@@ -19,8 +19,9 @@ public class Exam0111 {
   public static void main(String[] args) {
 
     // 바깥 클래스의 인스턴스를 먼저 만든 다음에 
-    // inner 클래스의 인스턴스를 만든다.
     A2 outer = new A2();
+
+    // inner 클래스의 인스턴스를 만든다.
     A2.X obj = outer.new X();
 
     // 물론 다음과 같이 위의 두 줄을 한 줄로 표현할 수 있다.

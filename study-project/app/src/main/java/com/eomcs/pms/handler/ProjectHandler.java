@@ -1,15 +1,16 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+import java.util.List;
 import com.eomcs.pms.domain.Project;
 import com.eomcs.util.Prompt;
 
 public class ProjectHandler {
 
-  List projectList;
+  List<Project> projectList;
   MemberHandler memberHandler;
 
-  public ProjectHandler(List projectList, MemberHandler memberHandler) {
+  public ProjectHandler(List<Project> projectList, MemberHandler memberHandler) {
     this.projectList = projectList;
     this.memberHandler = memberHandler;
   }
@@ -19,19 +20,19 @@ public class ProjectHandler {
 
     Project project = new Project();
 
-    project.setNo ( Prompt.inputInt("번호? "));
-    project.setTitle ( Prompt.inputString("프로젝트명? "));
-    project.setContent ( Prompt.inputString("내용? "));
-    project.setStartDate ( Prompt.inputDate("시작일? "));
-    project.setEndDate ( Prompt.inputDate("종료일? "));
+    project.setNo(Prompt.inputInt("번호? "));
+    project.setTitle(Prompt.inputString("프로젝트명? "));
+    project.setContent(Prompt.inputString("내용? "));
+    project.setStartDate(Prompt.inputDate("시작일? "));
+    project.setEndDate(Prompt.inputDate("종료일? "));
 
-    project.setOwner ( memberHandler.promptMember("만든이?(취소: 빈 문자열) "));
+    project.setOwner(memberHandler.promptMember("만든이?(취소: 빈 문자열) "));
     if (project.getOwner() == null) {
       System.out.println("프로젝트 등록을 취소합니다.");
       return;
     }
 
-    project.setMembers ( memberHandler.promptMembers("팀원?(완료: 빈 문자열) "));
+    project.setMembers(memberHandler.promptMembers("팀원?(완료: 빈 문자열) "));
 
     projectList.add(project);
   }
@@ -40,10 +41,10 @@ public class ProjectHandler {
   public void list() {
     System.out.println("[프로젝트 목록]");
 
-    Object[] list = projectList.toArray();
+    Project[] list = new Project[projectList.size()];
+    list = projectList.toArray(list); // 혹시 파라미터로 넘겨준 배열이 작을 경우를 대비한다.
 
-    for (Object obj : list) {
-      Project project = (Project) obj;
+    for (Project project : list) {
       System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
           project.getNo(), 
           project.getTitle(), 
@@ -105,12 +106,12 @@ public class ProjectHandler {
       return;
     }
 
-    project.setTitle ( title );
-    project.setContent ( content );
-    project.setStartDate ( startDate );
-    project.setEndDate ( endDate );
-    project.setOwner ( owner );
-    project.setMembers ( members );
+    project.setTitle(title);
+    project.setContent(content);
+    project.setStartDate(startDate);
+    project.setEndDate(endDate);
+    project.setOwner(owner);
+    project.setMembers(members);
 
     System.out.println("프로젝트를 변경하였습니다.");
   }
@@ -138,9 +139,8 @@ public class ProjectHandler {
   }
 
   public Project findByNo(int no) {
-    Object[] arr = projectList.toArray();
-    for (Object obj : arr) {
-      Project project = (Project) obj;
+    Project[] arr = projectList.toArray(new Project[0]);
+    for (Project project : arr) {
       if (project.getNo() == no) {
         return project;
       }
