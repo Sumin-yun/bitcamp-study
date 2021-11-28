@@ -1,0 +1,128 @@
+//Gradle 도구에 추가할 작업이 있으면 플러그인을 장착하라!
+
+plugins {
+    id 'java' //자바 애플리케이션 빌드 관련 작업들을 추가한다.
+    id 'eclipse-wtp'  //웹프로젝트 관련 작업을 수행할 플러그인 장착
+    id 'war'          //웹 애플리케이션 배포 파일을 생성하는 작업을 수행할 플러그인 장착
+    
+    
+    //이클립스 IDE 관련 작업 플러그인
+        //'java'플러그인 + '애플리케이션' 플러그인
+        //eclipseProject: .project 파일생성
+        //eclipseclasspath :.classpath 파일생성
+        //eclipse : = eclipseProject + ecliseCalsspath
+        //cleanEclipse
+        // classes작업을 먼저 수행 후 application 설정에 지정한 클래스를 실행한다.
+} 
+
+//프로젝트에서 외부의 라이브러리를 사용한다면
+//그 라이브러리 파일(.jar)을 다운로드 받을 서버 정보를 설정하라!
+
+
+eclipse{
+    project{
+        name = 'study-project-server'
+    }
+}
+
+war {
+  archiveBaseName = "pms"
+}
+
+tasks.withType(JavaCompile) {
+    // $javac -encoding UTF-8 ...
+    options.encoding = 'UTF-8';
+    
+    // 소스 파일을 작성할 때 사용할 자바 버전
+    sourceCompatibility = '11'
+
+    // 자바 클래스를 실행시킬 JVM의 최소 버전
+    targetCompatibility = '11'
+}
+
+repositories {
+
+    mavenCentral() // https://repo.maven.apache.org/maven2/ 사이트에서 다운로드 받는다
+} 
+
+//프로젝트에서 사용하는 라이브러리 정보를 등록한다.
+//->Gradle 을 실행할떄 위에서 설정한 서버에 접속하여
+//  등록한 라이브러리를 자동으로 다운로드 받는다.
+//->이렇게 다운로드 받은 라이브러리는 컴파일하거나 실행할때 사용된다.
+
+
+dependencies {
+
+    // 라이브러리 유형
+  // 1) implementation
+  //    => 컴파일할 때 사용하고, 배포할 때 포함한다.
+  // 2) providedCompile
+  //    => 컴파일 할 때 사용하고, 배포에서는 제외한다.
+  // 3) testImplementation
+  //    => 테스트 소스를 컴파일 할 때만 사용, 배포에서 제외한다.
+  
+  // 서블릿 API
+  // - 서블릿 컨테이너에 있는 라이브러리다. 따라서 배포할 때 제외해야 한다.
+  // - 프로그램을 개발하는 동안 컴파일할 때 사용해야 하기 때문에 providedCompile 로 설정한다.
+  providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+  
+  // JSP API
+  // - 서블릿 컨테이너에 있는 라이브러리다. 따라서 배포할 때 제외해야 한다.
+  // - 프로그램을 개발하는 동안 컴파일할 때 사용해야 하기 때문에 providedCompile 로 설정한다.
+  providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
+
+  // JSTL 구현체
+  implementation 'javax.servlet:jstl:1.2' // JSTL API + JSTL 구현체
+  //implementation 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.2' // JSTL API 만 있다.
+    
+  // Google JSON 라이브러리
+  implementation 'com.google.code.gson:gson:2.8.8'
+  
+  // MariaDB JDBC 드라이버
+  implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
+  
+  // Mybatis 퍼시스턴스 프레임워크
+  implementation 'org.mybatis:mybatis:3.5.7'
+  
+  // Thumbnailator 썸네일 생성 라이브러리
+implementation 'net.coobird:thumbnailator:0.4.14'
+
+  implementation 'com.google.guava:guava:30.1-jre'
+  testImplementation 'junit:junit:4.13.2'
+  
+  //스프링 프레임워크
+  implementation 'org.springframework:spring-webmvc:5.3.13' 
+  
+  //스프링-jdbc
+  implementation 'org.springframework:spring-jdbc:5.3.13' 
+  
+  //스프링 mybatis연동 라이브러리
+  implementation 'org.mybatis:mybatis-spring:2.0.6' 
+  
+  //log4j
+  implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
+  
+  //spring ioc컨테이너
+  implementation 'org.springframework:spring-context:5.3.13'
+  
+}
+
+/*.exe
+/node_modules/
+temp/
+Debug/
+Release/
+html-exam/
+package-lock.json/
+
+/* gradle 사용법
+     1)init 작업을 통해 프로젝트 폴더를 준비.
+     2)build Script에 build 작업이 들어있는 플러그인 설정.
+         ex) plugins{id 'application'}    
+     3)각 플러그인의 작업을 실행할때 필요한 정보를 설정.
+         ex) depencis{}
+     4)프로젝트에서 사용할 외부 라이브러리 파일을 등록. 
+         ex) appliaton{}providedCompile
+     5)필요한 작업을 실행하여 애플리케이션 빌드. 
+         ex) $gradle.build
+*/       

@@ -22,7 +22,7 @@ public class Exam0320 {
     Iterator<String> 키를꺼내주는객체 = keys.iterator();
 
     // Iterator를 얻은 후에 새 값을 넣기
-    map.put("s06", new Member("김구", 50));
+   // map.put("s06", new Member("김구", 50));
 
     // Iterator 객체를 생성할 때,
     // 현재 목록 객체(keys)를 바탕으로 생성한다.
