@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry output="bin/main" kind="src" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
@@ -27,8 +26,9 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11/"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11/"/>
 	<classpathentry sourcepath="/Users/sumin/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.3.13/1e9e88fe6a26b39d35de1fffc04f2c387d8f8512/spring-webmvc-5.3.13-sources.jar" kind="lib" path="/Users/sumin/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.3.13/cea31c85fa84dbd9f8df14a3ca62ab57c25cabe4/spring-webmvc-5.3.13.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>

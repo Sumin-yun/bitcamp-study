@@ -13,7 +13,6 @@ public class Exam01 {
 
     SpringUtils.printBeanList(iocContainer);
   }
-
 }
 
 

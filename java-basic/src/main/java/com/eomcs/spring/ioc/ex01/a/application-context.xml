@@ -3,6 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
       https://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!-- 여기까지가 루트 엘리먼트이다 --> 
   
   <!-- 여기에 Spring Framework의 설정 정보를 기술한다. -->
   
