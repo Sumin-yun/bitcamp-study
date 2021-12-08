@@ -8,7 +8,7 @@ import com.eomcs.spring.ioc.SpringUtils;
 public class Exam0220 {
 
   public static void main(String[] args) {
-    ApplicationContext iocContainer = new ClassPathXmlApplicationContext(//
+    ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
         "com/eomcs/spring/ioc/ex02/b/application-context.xml");
 
     // 빈의 id와 클래스명을 출력하기

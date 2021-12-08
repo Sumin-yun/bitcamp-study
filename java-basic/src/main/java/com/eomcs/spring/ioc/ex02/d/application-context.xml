@@ -16,15 +16,15 @@
       즉 com.eomcs.spring.ioc.ex02.Car#0 이름을 가진 익명 객체의 별명은 
          com.eomcs.spring.ioc.ex02.Car 이다.
       그외 익명 객체는 별명이 붙지 않는다.  -->
-    <bean class="com.eomcs.spring.ioc.ex02.Car"/>
-    <bean class="com.eomcs.spring.ioc.ex02.Car"/>
-    <bean class="com.eomcs.spring.ioc.ex02.Car"/>
-    <bean class="com.eomcs.spring.ioc.ex02.Car"/>
+    <bean class="com.eomcs.spring.ioc.ex02.Car"/>   <!-- index0 -->
+    <bean class="com.eomcs.spring.ioc.ex02.Car"/>   <!-- index1 -->
+    <bean class="com.eomcs.spring.ioc.ex02.Car"/>   <!-- index2 -->
+    <bean class="com.eomcs.spring.ioc.ex02.Car"/>   <!-- index3 -->
     
     <!-- 인덱스 번호는 클래스마다 0부터 시작한다. -->
-    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>
-    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>
-    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>
+    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>  <!-- index0 -->
+    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>  <!-- index1 -->
+    <bean class="com.eomcs.spring.ioc.ex02.Engine"/>  <!-- index2 -->
 </beans>
 
 
