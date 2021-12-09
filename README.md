@@ -1,5 +1,6 @@
 # bitcamp-study curriculum
 
+<<<<<<< HEAD
 ## 1일차(2021-06-28,월)
 - 교육과정의 목표: 웹 개발자 역량 습득
 - 웹 개발자의 진로: SI/SM, 스타트업, 서비스, 공사 등
@@ -187,7 +188,6 @@
 		- 이스케이프 문자를 다루는 방법
 		- Raster 폰트(그림)과 Vector 폰트(그림) 비교 
 		- 줄바꿈 코드: 0D(Carrage Return; CR), 0A(Line Feed; LF)
-
 
 ## 8일차(2021-07-07,수)
 - 자바 기초 문법(eomcs-java/com.eomcs.lang)
