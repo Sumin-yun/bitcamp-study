@@ -1,150 +1,192 @@
 # bitcamp-study curriculum
 
-##1일차(2021-06-28, 수)
+## 1일차(2021-06-28,월)
+- 교육과정의 목표: 웹 개발자 역량 습득
+- 웹 개발자의 진로: SI/SM, 스타트업, 서비스, 공사 등
+- 소프트웨어 개요
+	- System S/W, Application S/W
+	- Standalone, Client/Server, Web Application
+	- Web application 구성 요소: Java App, HTML/CSS/JavaScript
+	- Back-end 개발: Java Application을 작성할 때 사용되는 기술 개요
+	- Front-end 개발: HTML/CSS/JavaScript 기술 개요
+- 프로그래밍 도구 준비
+	- WebEx 온라인 화상 통신 설치
+	- github.com 계정 생성
+	- github.com에 개인 저장소 생성
+	- 강사의 저장소 가져오기
+	- 저장소에 추가된 파일 가져오기
 
-	1) 웹 개발자 필요 역량
+## 2일차(2021-06-29,화)
+- 프로그래밍 도구 준비(계속)
+	- git 저장소 다루기
+		- git 서버 저장소를 로컬로 복제
+		- 작업 파일을 로컬 저장소에 백업
+		- 로컬 저장소의 내용을 서버 저장소에 업로드
+		- 서버 저장소의 변경 내용을 로컬 저장소로 가져오기
+	- VSCode 편집기 설치
+	- mingw64 윈도우 gcc 컴파일 설치
+	- node.js 자바스크립트 인터프리터 설치
+- 프로그램 만들고 실행하기
+	- 컴파일 방식
+		- C 언어로 "Hello, world!" 를 출력하는 프로그램 만들기 
+		- 소스와 기계어, 컴파일, 컴파일러의 관계
+		- 기계어란? 
+			- CPU instruction set
+			- 기계어와 CPU의 관계
+			- 기계어와 OS의 관계
+	- 인터프리터 방식
+		- JavaScript 언어로 "Hello, world!" 를 출력하는 프로그램 만들기
 
-	2) 웹 개발자 진로 : SI/SM, 스타트업, 서비스, 공사 등		
+## 3일차(2021-06-30,수)
+- 프로그래밍 도구 준비(계속)
+	- Java 11 JDK 설치
+		- JAVA_HOME 환경 변수 설정
+		- PATH 환경 변수 설정
+- 프로그램 만들고 실행하기(계속)
+	- 컴파일 방식과 인터프리터 방식 비교
+		- 프로그래밍 언어와 컴파일, 컴파일러
+	- 자바의 프로그래밍 방식 소개
+		- 컴파일과 실행
+- 자바 애플리케이션 프로젝트 폴더 준비
+	- 애플리케이션과 프로젝트의 관계
+	- git 저장소에서 프로젝트 관리하기
+		- 1단계: 소스파일과 .class 파일을 구분하지 않는다.
+		- 2단계: src 폴더와 bin 폴더를 사용하여 소스 파일과 .class 파일을 분리한다.
+		- 3단계: Maven 프로젝트 표준 디렉토리 구조
+		- 4단계: git 저장소에 여러 개의 프로젝트 두기
+- 수업 자료 준비하기
+	- 자바 프로그래밍 기본 문법 예제
+		- https://github.com/eomcs/eomcs-java
+	- 개발 도구 설정 및 사용 안내서 
+		- https://github.com/eomcs/eomcs-docs
+	- 서블릿/JSP 예제
+		- https://github.com/eomcs/eomcs-java-web
+	- Spring 프레임워크 예제
+		- https://github.com/eomcs/eomcs-spring-webmvc
+	- 미니 프로젝트 관리 시스템 단계별 구현 예제
+		- https://github.com/eomcs/eomcs-java-project-2021
 
-	3) 소프트웨어 개요
-	
-	4) 개발학습 도구 준비
+## 4일차(2021-07-01,목)
+- 프로그래밍 도구 준비(계속)
+	- Gradle 설치
+		- PATH 환경 변수 등록
+- 프로젝트 관리
+	- 애플리케이션과 프로젝트
+	- 루트 프로젝트와 서브 프로젝트
+	- 프로젝트와 작업
+	- 프로젝트 산출물을 보관하기 위한 디렉토리 구조
+	- 팀 프로젝트와 깃 저장소
+	- 깃 저장소로 프로젝트를 관리하는 다양한 유형
+- 교육 과정 진행 
+	- 이론과 실전 프로젝트를 병행하여 학습
+	- 실전 프로젝트(study-project)의 로드맵
+- 빌드 도구
+	- 빌드 도구 개요
+	- 다양한 빌드 도구: Ant, Maven, Gradle
+	- Gradle 빌드 도구를 이용하여 프로젝트 폴더 준비
+		- `gradle init`
+	- Gradle 빌드 도구로 생성한 디렉토리의 구조 및 파일 설명
+- Gradle 빌드 도구 사용법
+	- 빌드 스크립트 파일의 용도
+		- settings.gradle : 여러 프로젝트에 공통으로 적용할 설정 정보.
+		- app/build.gradle : 서브 프로젝트에만 적용하는 빌드 설정 정보.
+	- Gradle 기본 작업
+		- init : 현재 폴더를 프로젝트 폴더로 구성
+		- wrapper : Gradle 설치 및 실행 파일 생성
+		- gradle에 플러그인을 장착하면 더 많은 작업을 수행할 수 있다.
+	- 'java' gradle 플러그인  
+		- compileJava
+			- src/main/java 폴더에 있는 소스 파일을 모두 컴파일
+			- build/classes/java/main 폴더에 .class 파일을 둔다.
+		- compileTestJava
+			- src/test/java 폴더에 있는 소스 파일을 모두 컴파일
+			- build/classes/java/test 폴더에 .class 파일을 둔다.
+		- processResources
+			- src/main/resources 폴더에 있는 파일을 build/resources/main 폴더에 복사한다.
+		- processTestResources
+			- src/test/resources 폴더에 있는 파일을 build/resources/test 폴더에 복사한다.
+		- clean
+			- build 폴더를 삭제한다.
+		- classes
+			- compileJava와 processResources를 모두 수행
+		- testClasses
+			- classes + compileTestJava + processTestResources 수행
+		- check
+			- test + 단위 테스트 수행
+		- javadoc
+			- 소스 파일에서 javadoc 주석을 추출하여 HTML된 API 문서를 생성한다.
+		- build
+			- check + assemble(배포 파일 생성 작업) 수행
+	- 'application' gradle 플러그인  	
+		- run
+			- 'java' 플러그인의 classes 작업을 먼저 실행한다.
+			- 그런 후 application 설정에 지정한 클래스를 실행한다.
+		- build
+			- 이 플러그인을 장착한 상태에서 build 작업을 수행하면 고객에게 배포할 수 있는 파일을 build/distributions 폴더에 생성한다.
+			- 자바 프로그램을 실행시킬 수 있는 스크립트 파일도 자동 생성된다.
+	- 정리
+		- 1) init 작업을 통해 프로젝트 폴더를 준비한다.
+		- 2) build.script에 빌드 작업이 들어 있는 플러그인을 설정한다.		
+		- 3) 각 플러그인의 작업을 실행할 때 필요한 정보를 등록한다.
+		- 4) 프로젝트에서 사용할 외부 라이브러리 파일을 등록한다.
+		- 5) 필요한 작업을 실행하여 애플리케이션을 빌드한다.
+- 실전 프로젝트(eomcs-java-project)
+	- 01-a. 프로젝트 준비하기 : Gradle 빌드 도구를 활용한 자바 프로젝트 구성
 
-		1.webEx
-		-온라인 화상 통신 설치	
-	
-		2.git hub
-		-계정생성
-		-git client 설치
-		-client server로 연결
-		-git 가져오기 (변경된 내용 백업)
-		-git 로컬 저장소에 변경 내용 업로드
-	
+## 5일차(2021-07-01,금)
+- 프로그래밍 도구 준비(계속)
+	- eclipse.org 에서 개발 도구 다운로드 및 설치
+	- eclipse IDE 환경 설정    
+		- eomcs-docs/devtool/개발도구준비.md 파일 참조
+- git 다루기
+	- 로컬 저장소 만들기
+		- `git init`
+	- 서버 저장소 만들기 
+		- `github.com`에서 new 버튼 클릭
+	- 로컬 저장소에 서버 저장소의 위치를 등록하기
+		- `git remote origin 서버저장소URL`
+	- 로컬 저장소의 내용을 서버에 올리기
+		- `git push`
+- 자바 기초 문법(eomcs-java/com.eomcs.lang)
+	- ex01
+		- 패키지 다루기
+		- 자바 소스 파일과 클래스 블록
+		- 소스 파일의 인코딩
+		- main() 메서드
+	- ex02
+		- 여러 줄 주석, 한 줄 주석
+		- javadoc 주석
+		- 애노테이션
+- 실전 프로젝트(eomcs-java-project)
+	- 01-b. 프로젝트 준비하기 : `이클립스 IDE`로 임포트
 
+## 6일차(2021-07-05,월)
+- 프로그래밍 도구 준비(계속)
+	- VSCode Live 확장 팩 플러그인 추가
+	- 라이브 코딩 작업 테스트
+- 자바 기초 문법(eomcs-java/com.eomcs.lang)
+	- ex99
+		- 콘솔 출력 다루기: print(), println(), printf()
+	- ex03
+		- 리터럴 표기법 요약 정리
+		- 값을 메모리에 저장하는 방법: RAM, HDD
+		- 10진수, 8진수, 2진수, 16진수 표기법
+		- 정수를 2진수로 저장하는 방법
+		- 메모리 크기에 따른 값의 범위
+- 실전 프로젝트(eomcs-java-project)
+	- 02-a. 값 다루기 : 리터럴과 콘솔 출력
 
-##2일차(2021-06-29, 화)
-
-	1) git hub pul/push 복습
-		-로컬저장소 파일 업로드: 백업명단 작성 ($git add .)  -> 백업 수행 ($git commit -m "설명") -> $git push
-		-서버 저장소 변경내용 로컬 저장소로 가져오기: $git pull
-
-	2) Programming 소개 
-	
-		1.컴파일 방식
-		-소스파일을 기계어로 번역 - 운영체제로 전달 - cpu로 전달 및 명령어 처리
-		-코드를 cpu가 인식할 수 있는 명령어로 번역하는 컴파일 과정이 필요.
-		-같은 cpu일지라도 번역된 기계어를 cpu에서 처리하는 규칙이 다르기 때문에 실행 과정을 거쳐야 함. 
-		-mingw64 윈도우 gcc 컴파일 설치
-
-		2.인터프리터 방식
-		-소스파일의 - interpreter - 운영체제
-		-소스파일의 명령을 인터프리터를 이용하여 바로 실행한다.
-		-node.js 자바스크립트 인터프리터 설치
-		
- 
-##3일차(2021-06-30, 수)
-
-	1)프로그래밍 언어와 컴파일
-		-인터프리터 방식과 컴파일 방식의 차이 복습.
-		-컴파일 방식은 소스 파일의 명령을 한 줄씩 읽어서 실행하기 떄문에, 기계어를 바로 실행하는 인터프리터 방식보다 속도가 느리다.
-		-인터프리터 방식은 OS용 인터프리터만 있으면 언제든 실행가능하기 떄문에, 소스코드가 공개 된다.
-		-컴파일 방식 (예.Webex, 예.네이버, 구글)
-
-	2)수업도구설치
-		-JDK설치 (java로 작성한 명령어를 byte코드로 번역)
-		-PATH 환경변수 설정
-
-	3)자바 애플리케이션 프로젝트 폴더 준비
-		-애플리케이션과 프로젝트의 관계
-		-git 저장소에서 프로젝트 관리 하기
-		1단계: 소스파일과 .class 파일을 구분하지 않음
-		2단계: src 폴더와 bin 폴더를 사용하여 소스 파일과 .class 파일을 분리한다.
-		3단계: Maven 프로젝트 표준 디렉토리 구조
-		4단계: git 저장소에 여러개의 프로젝트 두기	
-
-
-##4일차(2021-07-01, 목)
-
-	1)프로그래밍 도구 준비
-		-Gradle 설치 
-		-Gradle 환경변수 등록
-
-	2)빌드 도구
-		-빌드 도구 (Ant, Maven, Gradle)
-		-Ant (build.xml) : 1세대 빌드도구. 
-		-Maven (pom.xml) : 2세대 빌드도구. Ant에서 의존 라이브러리가 자동 다운됨.
-		-Gradle(build.gradle) :3세대 빌드도구. Android App 개발시 필요 + Maven 호환
-
-	3)Gradle 빌드 도구
-		1.빌드 스크립트 파일 용도
-			-setting.gradle : 여러 프로젝트에 공통으로 적용할 설정 정보.
-			-app/build.gradle : 서브 프로젝트에만 적용하는 빌드 설정 정보.
-		2.빌드도구 설정
-			-init 작업을 통해 프로젝트 폴더 준비
-			-build.script에 빌드 작업이 들어 있는 플러그인 설정.
-			-각 플러그인의 작업을 실행할 때 필요한 정보 등록.
-			-프로젝트에서 사용할 외부 라이브러리 파일 등록.
-			-필요한 작업을 실행하여 애플리케이션 빌드.
-
-##5일차(2021-07-02, 금)
-
-	1)프로그래밍 도구 준비
-		-eclipse.org에서 개발 도구 설치
-		-eclipse IDE 환경설정
-
-	2)git 다루기
-		-로컬 저장소 만들기 : git init
-		-서버 저장소 만들기 : github.com 에서 new
-		-로컬 저장소에 서버 저장소 위치 등록 : git remote origin 서버URL
-		-로컬 저장소 내용 서버에 올리기 : git push	
-
-	3)자바 기초 문법
-		1.ex01
-			-패키지 구성하기 : 쓰임에 따라 알맞게 프로젝트를 분류한다.
-			-자바 소스 파일과 클래스 블록: 자바에서 프로젝트를 컴파일하면, 프로젝트명이 아닌 클래스명으로 실행파일이 생성된다.
-			-소스 파일의 인코딩 : window에서 소스파일이 ms949로 작성되었을 것이라 간주되기 때문에, -encoding utf-8 명령어를 이용하여 컴파일 해야 오류가 없다.
-			-main() 메서드
-
-		2.ex02
-			-여러 줄 주석, 한 줄 주석: 여러줄 = /*, */  한줄 = //
-			-javadoc : 소스코드에 있는 주석을 HTML문서로 만들어 준다.
-			-애노테이션 : @
-
-
-##6일차(2021-07-05, 월)
-
-	1)프로그래밍 도구 준비
-		-VSCode Live Share 확장팩 추가
-
-	2)자바 기초 문법
-		1.ex99
-			-콘솔 다루기 : print(), println(), printf() 차이
-				print() : 줄바꿈 없이 ()안 내용 출력
-				pintln() : 줄바꾸며 ()안 내용 출력
-				printf() : 저장된 위치에 삽입되어 하나의 문자열 생성
-		2.ex03 
-			-리터럴 표기법 요약 정리 : 정수리터럴, 부동소수점 리터럴, 논리 리터럴, 문자 리터럴, 문자열 리터럴
-			-값을 메모리에 저장하는 방법 : RAM, HDD
-			-10진수, 8진수, 2진수, 16진수 표기법
-			-메모리 크기에 따른 값의 범위
-
-
-##7일차(2021-07-06, 화)			
-
-	1)프로그래밍 도구 준비
-		-VSCode Hex Editor 플러그인 추가
-		-.class 파일을 Hex Editor 이용하여 16진수로 출력해보기.
-			->부동소수점이 2진수로 표현됐을 떄의 2진수 값 확인.
-	
-	2)자바 기초 문법
-		1.ex03
-			-부동 소수점을 2진수로 표현하는 법 : IEEE 754 명세
-			-문자를 2진수로 표현하는 방법: ASCII, ISO-8859-2, EUC-KR, 조합형, Unicode, UTF-8 문자 집합 소개
-			-이스케이프 문자 
-			-Raster 폰트와 Vector 폰츠 비교
-			-줄바꿈 코드: 0D(Carrage Return; CR), 0A(Line Feed; LF) 
-
-	# bitcamp-20210621
+## 7일차(2021-07-06,화)
+- 프로그래밍 도구 준비(계속)
+	- VSCode Hex Editor 플러그인 추가
+	- .class 파일을 16진수 값으로 보기 : 부동소수점이 2진수로 표현됐을 때의 2진수 값 확인
+- 자바 기초 문법(eomcs-java/com.eomcs.lang)
+	- ex03
+		- 부동소수점을 2진수로 표현하는 방법: IEEE 754 명세
+		- 문자를 2진수로 표현하는 방법: ASCII, ISO-8859-2, EUC-KR, 조합형, Unicode, UTF-8 문자 집합 소개
+		- 이스케이프 문자를 다루는 방법
+		- Raster 폰트(그림)과 Vector 폰트(그림) 비교 
+		- 줄바꿈 코드: 0D(Carrage Return; CR), 0A(Line Feed; LF)
 
 
 ## 8일차(2021-07-07,수)
